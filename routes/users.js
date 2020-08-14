@@ -44,6 +44,7 @@ router.post("/login", async function (req, res, next) {
     });
   try {
     var user = await User.findOne({ email });
+    console.log(user, "++++++_+_+_+_+");
     if (!user)
       return res
         .status(400)
@@ -61,7 +62,6 @@ router.post("/login", async function (req, res, next) {
       token,
       image: user.image,
       bio: user.bio,
-      // following : user.following
     });
   } catch (error) {
     next(error);

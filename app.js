@@ -10,7 +10,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var dashboardRouter = require("./routes/dashboard");
 
-mongoosse.connect(
+mongoose.connect(
   "mongodb://localhost/trello_api",
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
