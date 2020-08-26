@@ -21,10 +21,8 @@ router.post("/", async (req, res, next) => {
         email: user.email,
         username: user.username,
         token,
-        // bio: "I work at statefarm",
         image: user.image,
         bio: user.bio,
-        // following : user.following
       });
       console.log(token, "token");
     } else {

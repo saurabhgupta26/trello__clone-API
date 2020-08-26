@@ -22,6 +22,10 @@ var userSchema = new Schema(
     },
     bio: String,
     image: String,
+    board: {
+      type: Schema.Types.ObjectId,
+      ref: "Board",
+    },
   },
   {
     timestamps: true,
