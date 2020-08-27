@@ -60,6 +60,7 @@ router.post("/login", async function (req, res, next) {
       token,
       image: user.image,
       bio: user.bio,
+      board: user.board,
     });
   } catch (error) {
     next(error);

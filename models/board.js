@@ -17,6 +17,10 @@ var boardSchema = new Schema(
         default: "",
       },
     ],
+    visibility: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
