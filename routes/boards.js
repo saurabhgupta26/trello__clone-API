@@ -23,3 +23,8 @@ router.post("/board", auth.verifyToken, async function (req, res, next) {
     next(error);
   }
 });
+
+
+
+
+module.exports = router;
