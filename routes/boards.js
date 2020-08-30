@@ -27,6 +27,7 @@ router.post("/board", auth.verifyToken, async function (req, res, next) {
 router.post("/board/team", auth.verifyToken, async function(req, res, next) {
   try {
     // req.body.board.team = req.user.
+    
   } catch (error) {
     next(error)
   }

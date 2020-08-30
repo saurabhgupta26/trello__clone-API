@@ -67,4 +67,22 @@ router.post("/login", async function (req, res, next) {
   }
 });
 
+router.put("/:userSlug/setting", async function (req, res, next) {
+  try {
+    console.log(req.body.user, "USERID");
+    var userId = req.user.userId;
+    var user = await User.findByIdAndUpdate(userId, req.body.user);
+    console.log(user, "hello");
+    res.status(200).json({
+      email: user.email,
+      username: user.username,
+      token: req.user.token,
+      bio: user.bio,
+      image: user.image,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

@@ -21,6 +21,12 @@ var boardSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    list: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "List",
+      },
+    ],
   },
   { timestamps: true }
 );
