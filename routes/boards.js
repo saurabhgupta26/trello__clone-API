@@ -24,6 +24,33 @@ router.post("/board", auth.verifyToken, async function (req, res, next) {
   }
 });
 
+// update the board
+router.put("/:slug/", auth.verifyToken, async function (req, res, next) {
+  try {
+    // console.log(req.params.slug, "slug");
+    var board = await Board.findOneAndUpdate(
+      { slug: req.params.slug },
+      req.body.board
+    );
+    var board = await Board.findById(board.id).populate(
+      "title",
+      "title user visibility background"
+    );
+    console.log(article, "hello");
+    res.status(200).json({
+      board: {
+        slug: req.params.slug,
+        title: board.title,
+        user: board.user,
+        visibility: board.visibility,
+        background: board.background,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post("/board/team", auth.verifyToken, async function (req, res, next) {
   try {
     // req.body.board.team = req.user.
